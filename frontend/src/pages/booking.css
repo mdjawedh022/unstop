@@ -1,0 +1,45 @@
+.container{
+    width: 70%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 10px    
+
+}
+button{
+ border-radius:10px;
+ border:none;
+ border-right: 5px solid black;
+ border-bottom: 5px solid black;
+    padding:10px 0px;
+    font-size: 17px;
+    font-weight: 500;
+}
+.btn{
+    padding: 10px 20px;
+}
+input{
+    border-radius:10px;
+    border-right: 5px solid black;
+ border-bottom: 5px solid black;
+   padding: 2px;
+    font-size: 17px;
+    font-weight: 500;
+}
+.input-box{
+    width: 40%;
+    margin:20px auto;
+    text-align: center;
+    display: flex;
+    gap: 20px;
+}
+.btncolor{
+    background-color: red;
+    color: aliceblue;
+}
+
+
+.btncolor1{
+background-color: green;
+color: aliceblue;
+}

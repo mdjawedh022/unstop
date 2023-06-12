@@ -26,20 +26,35 @@ BookingRouter.post("/post", async (req, res) => {
     let row = 1;
     let obj = {};
     for (let a = 0; a < seat.length; a++) {
-      if (count == seatNumber) {
-        break;
-      }
-      if (seat[a].row == row && count < seatNumber) {
+     
+      // console.log(count,seatNumber)
+     
+      if (seat[a].row == row && count <= seatNumber) {
         if (!seat[a].isBooked) {
-          count++;
+          
           obj[count] = seat[a].id;
-        } else {
-          row++;
-          count = 0;
+          count++;
+          
+        }else{
+          count=0
+          continue;
         }
       }
+    
+      if(seat[a].row > row && count != seatNumber){
+        row++
+        count=0
+      }
+       // console.log(count,seatNumber)
+       if (count == seatNumber) {
+        // console.log("break")
+        break;
+      }
+      
     }
-    // console.log(obj);
+    
+    // console.log("booked",obj)
+
     for(let key in obj){
         await BookingModel.findByIdAndUpdate({_id:obj[key]},{isBooked:true})
     }
